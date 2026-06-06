@@ -1,171 +1,169 @@
 # Wikanda Hair Salon
 
-ระบบจัดการร้านทำผม Wikanda Hair Salon — พัฒนาด้วย PHP 8+ แบบ Pure (ไม่ใช้ Framework)
+ระบบจัดการร้านทำผม Wikanda Hair Salon พัฒนาด้วย Pure PHP 8+ แบบ MVC มีทั้งหน้าเว็บสำหรับลูกค้า/พนักงาน/ผู้ดูแล ระบบจองคิว ระบบชำระเงิน รายงาน และ REST API
 
-## ความต้องการของระบบ / Requirements
+Wikanda Hair Salon is a Pure PHP 8+ MVC web application for salon management. It includes customer, staff, and admin pages, booking management, payments, reporting, and REST API endpoints.
 
-- PHP 8.0 ขึ้นไป
-- Apache + mod_rewrite (หรือ Nginx กับ config ที่เทียบเท่า)
-- XAMPP (แนะนำสำหรับ Windows)
+## คุณสมบัติหลัก / Key Features
 
-## วิธีติดตั้ง / Installation
+- ระบบสมาชิกและบทบาทผู้ใช้: admin, owner, staff, member
+- User authentication and role-based access control: admin, owner, staff, member
+- จองคิวบริการทำผม พร้อมเลือกบริการและช่าง
+- Hair service booking with service and staff selection
+- จัดการบริการ ช่าง ลูกค้า การจอง และการชำระเงิน
+- Manage services, staff, customers, bookings, and payments
+- ตรวจสอบ/อนุมัติการชำระเงิน และรองรับ Slip2Go API
+- Payment verification/approval workflow with Slip2Go integration support
+- รองรับ LINE Messaging API สำหรับแจ้งเตือน
+- LINE Messaging API support for notifications
+- Dashboard และรายงานรายได้/บริการยอดนิยม
+- Dashboards and reports for revenue and top services
+- รองรับฐานข้อมูล JSON สำหรับ local และ MySQL สำหรับ hosting
+- Supports JSON storage for local development and MySQL for hosting
 
-### 1. วางโปรเจกต์ใน htdocs
+## เทคโนโลยี / Tech Stack
 
-```bash
-# ถ้าใช้ XAMPP บน Windows
-# คัดลอกโฟลเดอร์ Wikanda_Hair_Salon ไปวางที่ C:\xampp\htdocs\
-```
-
-### 2. ตั้งค่า Apache
-
-ตรวจสอบว่า `mod_rewrite` เปิดใช้งานแล้วใน `httpd.conf`:
-
-```apache
-LoadModule rewrite_module modules/mod_rewrite.so
-```
-
-และใน `<Directory>` ของ htdocs ให้ `AllowOverride All`:
-
-```apache
-<Directory "C:/xampp/htdocs">
-    AllowOverride All
-    Require all granted
-</Directory>
-```
-
-### 3. สร้างโฟลเดอร์ที่จำเป็น
-
-```bash
-# สร้างโฟลเดอร์สำหรับเก็บ log และ uploads
-mkdir storage/logs
-mkdir storage/uploads
-mkdir storage/uploads/slips
-```
-
-### 4. ตั้งค่า config (ถ้าจำเป็น)
-
-แก้ไขไฟล์ `config/app.php` ให้ตรงกับ environment:
-
-```php
-'base_url' => 'http://localhost/Wikanda_Hair_Salon/public',
-'api_url'  => 'http://localhost/Wikanda_Hair_Salon/api',
-```
-
-### 5. เข้าใช้งาน
-
-- **หน้าเว็บ:** http://localhost/Wikanda_Hair_Salon/public/
-- **API:** http://localhost/Wikanda_Hair_Salon/api/v1/
-
-## บัญชีทดสอบ / Test Accounts
-
-| บทบาท  | ชื่อผู้ใช้ | รหัสผ่าน    |
-| ------ | ---------- | ----------- |
-| Admin  | admin      | password123 |
-| Owner  | owner      | password123 |
-| Staff  | staff01    | password123 |
-| Staff  | staff02    | password123 |
-| Member | member01   | password123 |
-| Member | member02   | password123 |
+- PHP 8.0+
+- Pure PHP MVC architecture
+- MySQL / JSON file storage
+- Bootstrap 5
+- Bootstrap Icons
+- Custom CSS/JavaScript
+- Apache `.htaccess` rewrite rules
 
 ## โครงสร้างโปรเจกต์ / Project Structure
 
-```
+```text
 Wikanda_Hair_Salon/
-├── api/                    # REST API endpoints
-│   ├── index.php           # API Front Controller
-│   └── v1/                 # API version 1
-│       ├── auth.php
-│       ├── bookings.php
-│       ├── payments.php
-│       ├── reports.php
-│       ├── reviews.php
-│       ├── services.php
-│       ├── staff.php
-│       └── users.php
-├── app/
-│   ├── Controllers/        # Web Controllers
-│   ├── Core/               # Framework Core (Router, View, Database, etc.)
-│   ├── Models/             # Data Models
-│   ├── Repositories/       # Data Access Layer
-│   ├── Services/           # Business Logic
-│   └── Views/              # HTML Templates
-├── config/                 # Configuration files
-├── data/                   # JSON database files
-├── public/                 # Web root
-│   ├── assets/
-│   │   ├── css/style.css   # Lovable style
-│   │   └── js/main.js      # Frontend JS
-│   ├── .htaccess
-│   └── index.php           # Web Front Controller
-└── storage/                # Uploads & logs
+├── api/                 REST API front controller and v1 endpoints
+├── app/                 MVC application code
+│   ├── Controllers/     Web controllers
+│   ├── Core/            Router, View, Database, Session
+│   ├── Models/          Data models
+│   ├── Repositories/    Data access layer
+│   ├── Services/        Business logic
+│   └── Views/           PHP view templates
+├── config/              Application, database, routes, integrations
+├── data/                JSON seed/local data
+├── database/            SQL schema and migration tools
+├── docs/                Documentation and diagrams
+├── public/              Local web root and assets
+├── storage/             Logs and uploaded files
+├── index.php            Hosting root entry point
+└── README.md
 ```
+
+## การติดตั้งบนเครื่อง / Local Installation
+
+1. วางโฟลเดอร์โปรเจกต์ไว้ใน `htdocs` ของ XAMPP หรือโฟลเดอร์เว็บเซิร์ฟเวอร์
+
+   Place the project folder inside XAMPP `htdocs` or your web server directory.
+
+2. เปิด Apache และเปิด `mod_rewrite`
+
+   Enable Apache and `mod_rewrite`.
+
+3. เข้าใช้งานผ่าน URL นี้
+
+   Open the app with:
+
+```text
+http://localhost/Wikanda_Hair_Salon/public/
+```
+
+หรือถ้าใช้ dev server ที่โปรเจกต์เตรียมไว้:
+
+Or use the prepared development server route:
+
+```text
+http://127.0.0.1:8087/Wikanda_Hair_Salon/public/
+```
+
+## การตั้งค่าฐานข้อมูล / Database Configuration
+
+ค่าเริ่มต้นบน local จะใช้ JSON storage จากโฟลเดอร์ `data/` อัตโนมัติ
+
+By default, local development uses JSON storage from the `data/` directory.
+
+สำหรับ hosting ให้ตั้งค่า MySQL ผ่าน environment variables หรือแก้ `config/database.php` บน server เท่านั้น ห้าม commit รหัสผ่านจริงขึ้น GitHub
+
+For hosting, configure MySQL through environment variables or edit `config/database.php` directly on the server. Never commit real passwords to GitHub.
+
+```text
+DB_HOST=YOUR_MYSQL_HOST
+DB_PORT=3306
+DB_DATABASE=YOUR_MYSQL_DATABASE
+DB_USERNAME=YOUR_MYSQL_USERNAME
+DB_PASSWORD=YOUR_MYSQL_PASSWORD
+```
+
+## บัญชีทดสอบ / Demo Accounts
+
+รหัสผ่านของบัญชีตัวอย่างทั้งหมดคือ `password123`
+
+All demo accounts use `password123` as the password.
+
+| Role | Username | Password |
+| --- | --- | --- |
+| Admin | admin | password123 |
+| Owner | owner | password123 |
+| Staff | staff01 | password123 |
+| Staff | staff02 | password123 |
+| Member | member01 | password123 |
+| Member | member02 | password123 |
 
 ## API Endpoints
 
-### Authentication
+Base API URL:
 
-- `POST /api/v1/auth` — register / login / logout
-- `GET /api/v1/auth/me` — current user
+```text
+/api/v1
+```
 
-### Users
+| Resource | Methods | Description |
+| --- | --- | --- |
+| `/auth` | GET, POST | Register, login, logout, current user |
+| `/users` | GET, POST, PUT, DELETE | User management |
+| `/services` | GET, POST, PUT, DELETE | Service management |
+| `/staff` | GET, POST, PUT, DELETE | Staff management |
+| `/bookings` | GET, POST, PUT, DELETE | Booking management |
+| `/payments` | GET, POST, PUT, DELETE | Payment management |
+| `/reviews` | GET, POST, PUT, DELETE | Review management |
+| `/reports` | GET | Revenue and operational reports |
 
-- `GET /api/v1/users` — list users (admin/owner)
-- `GET /api/v1/users/{id}` — get user
-- `POST /api/v1/users` — create user (admin/owner)
-- `PUT /api/v1/users/{id}` — update user
-- `DELETE /api/v1/users/{id}` — delete user (admin/owner)
+## การ Deploy / Deployment
 
-### Services
+สำหรับ free hosting ที่ใช้ document root เป็น root ของโดเมน ให้อัปโหลดโครงสร้างนี้ขึ้น server:
 
-- `GET /api/v1/services` — list services
-- `GET /api/v1/services/{id}` — get service
-- `POST /api/v1/services` — create service (admin/owner)
-- `PUT /api/v1/services/{id}` — update service (admin/owner)
-- `DELETE /api/v1/services/{id}` — delete service (admin/owner)
+For free hosting where the domain root is the document root, upload this structure to the server:
 
-### Bookings
+```text
+.htaccess
+index.php
+assets/
+api/
+app/
+config/
+data/
+database/
+storage/
+```
 
-- `GET /api/v1/bookings` — list bookings
-- `GET /api/v1/bookings/{id}` — get booking
-- `POST /api/v1/bookings` — create booking
-- `PUT /api/v1/bookings/{id}` — update booking
-- `PUT /api/v1/bookings/{id}/cancel` — cancel booking
-- `DELETE /api/v1/bookings/{id}` — delete booking (admin/owner)
+หลัง migrate ข้อมูลเข้า MySQL สำเร็จแล้ว ให้ลบไฟล์ migration ออกจาก server ทันที
 
-### Payments
+After a successful MySQL migration, remove migration files from the server immediately.
 
-- `GET /api/v1/payments` — list payments
-- `GET /api/v1/payments/{id}` — get payment
-- `POST /api/v1/payments` — create payment
-- `PUT /api/v1/payments/{id}/verify` — verify with Slip2Go
-- `PUT /api/v1/payments/{id}/approve` — manual approve (admin/owner)
-- `PUT /api/v1/payments/{id}/reject` — reject (admin/owner)
-- `DELETE /api/v1/payments/{id}` — delete payment (admin/owner)
+## หมายเหตุความปลอดภัย / Security Notes
 
-### Reports (admin/owner)
-
-- `GET /api/v1/reports/revenue/day?date=YYYY-MM-DD`
-- `GET /api/v1/reports/revenue/month?month=YYYY-MM`
-- `GET /api/v1/reports/revenue/year?year=YYYY`
-- `GET /api/v1/reports/top-services?limit=5`
-- `GET /api/v1/reports/today`
-
-## สไตล์ UI / UI Style
-
-- **Font:** Plus Jakarta Sans
-- **สีหลัก:** Gradient ชมพู-ม่วง (#FFB6D5 → #C8A8FF)
-- **พื้นหลัง:** ครีม (#FFF8F3)
-- **การ์ด:** Glassmorphism + soft shadow
-- **ปุ่ม:** Gradient + hover lift
-- **Framework:** Bootstrap 5
-
-## หมายเหตุ / Notes
-
-- ฐานข้อมูลใช้ JSON files (อยู่ใน `data/`) — สามารถย้ายไป MySQL ได้ในอนาคตโดยแก้แค่ `Core/Database.php`
-- LINE Messaging API และ Slip2Go ปิดใช้งานโดยค่าเริ่มต้น (ตั้งค่าใน `config/line.php` และ `config/slip2go.php`)
-- ไม่รองรับ Docker — ใช้ XAMPP เท่านั้น
+- ห้าม commit รหัสผ่านฐานข้อมูล, LINE token, Slip2Go key หรือ secret จริงขึ้น GitHub
+- Do not commit database passwords, LINE tokens, Slip2Go keys, or real secrets to GitHub
+- โฟลเดอร์ `deploy/`, ไฟล์ zip, debug scripts, และ runtime uploads/logs ถูก ignore แล้ว
+- `deploy/`, zip files, debug scripts, and runtime uploads/logs are ignored
+- ตั้งค่า integration token ผ่านหน้า Admin Settings หรือ config บน server เท่านั้น
+- Configure integration tokens through Admin Settings or server-side config only
 
 ## ผู้พัฒนา / Developer
 
-พัฒนาโดย AI Assistant สำหรับ Wikanda Hair Salon
+พัฒนาเพื่อโปรเจกต์ Wikanda Hair Salon
+
+Developed for the Wikanda Hair Salon project.

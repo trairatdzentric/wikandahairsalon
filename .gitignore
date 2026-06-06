@@ -1,0 +1,17 @@
+/deploy/
+/storage/logs/*
+/storage/uploads/*
+!/storage/logs/.gitkeep
+!/storage/uploads/.gitkeep
+!/storage/uploads/slips/
+!/storage/uploads/slips/.gitkeep
+/*.zip
+/debug.php
+/debug_index.php
+/phpinfo.php
+/temp_hash.php
+/test.php
+/migrate_mysql.php
+*.log
+.env
+.env.*

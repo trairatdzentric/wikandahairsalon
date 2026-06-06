@@ -1,0 +1,62 @@
+{
+  "_meta": {
+    "description": "ตารางการชำระเงิน / Payments table",
+    "type_values": ["deposit", "full"],
+    "method_values": ["promptpay", "bank_transfer", "cash"],
+    "status_values": ["pending", "verified", "rejected"],
+    "next_id": 4
+  },
+  "data": [
+    {
+      "id": 1,
+      "uuid": "e5f6a7b8-0005-4c9d-8e9f-000000000001",
+      "booking_id": 1,
+      "payment_type": "deposit",
+      "amount": 100,
+      "method": "promptpay",
+      "slip_image": "slip_001.jpg",
+      "slip2go_ref": "S2G-2026051501",
+      "slip2go_verified": true,
+      "status": "verified",
+      "verified_by": 1,
+      "verified_at": "2026-05-15 14:30:00",
+      "note": "มัดจำ 100 บาท / Deposit 100 THB",
+      "created_at": "2026-05-15 14:24:00",
+      "updated_at": "2026-05-15 14:30:00"
+    },
+    {
+      "id": 2,
+      "uuid": "e5f6a7b8-0005-4c9d-8e9f-000000000002",
+      "booking_id": 3,
+      "payment_type": "full",
+      "amount": 600,
+      "method": "cash",
+      "slip_image": null,
+      "slip2go_ref": null,
+      "slip2go_verified": false,
+      "status": "verified",
+      "verified_by": 3,
+      "verified_at": "2026-05-10 11:50:00",
+      "note": "ชำระเต็มจำนวนหน้าร้าน / Paid full at salon",
+      "created_at": "2026-05-10 11:50:00",
+      "updated_at": "2026-05-10 11:50:00"
+    },
+    {
+      "id": 3,
+      "uuid": "e5f6a7b8-0005-4c9d-8e9f-000000000003",
+      "booking_id": 4,
+      "payment_type": "full",
+      "amount": 1800,
+      "method": "promptpay",
+      "slip_image": "slip_004.jpg",
+      "slip2go_ref": "S2G-2026051204",
+      "slip2go_verified": true,
+      "status": "verified",
+      "verified_by": 1,
+      "verified_at": "2026-05-12 16:40:00",
+      "note": "",
+      "created_at": "2026-05-12 16:38:00",
+      "updated_at": "2026-05-12 16:40:00"
+    }
+  ]
+}

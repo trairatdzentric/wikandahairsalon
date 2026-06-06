@@ -1,0 +1,93 @@
+{
+  "_meta": {
+    "description": "ตารางผู้ใช้งานทั้งหมด / All users (Admin, Owner, Staff, Member)",
+    "password_note": "รหัสผ่านทั้งหมด plain = 'password123' ถูก hash ด้วย password_hash() แล้ว",
+    "next_id": 7
+  },
+  "data": [
+    {
+      "id": 1,
+      "uuid": "a1b2c3d4-0001-4e5f-8a9b-000000000001",
+      "username": "admin",
+      "email": "admin@wikanda.local",
+      "password_hash": "$2y$10$0Hfy76xeClHgFjJfDeHbp.npAAIRYoz3GWRGQRryiRowCJZIfzPja",
+      "full_name": "ผู้ดูแลระบบ",
+      "phone": "0800000001",
+      "role": "admin",
+      "line_user_id": null,
+      "avatar": null,
+      "created_at": "2026-01-01 09:00:00",
+      "updated_at": "2026-01-01 09:00:00"
+    },
+    {
+      "id": 2,
+      "uuid": "a1b2c3d4-0001-4e5f-8a9b-000000000002",
+      "username": "owner",
+      "email": "owner@wikanda.local",
+      "password_hash": "$2y$10$0Hfy76xeClHgFjJfDeHbp.npAAIRYoz3GWRGQRryiRowCJZIfzPja",
+      "full_name": "คุณวิกานดา (เจ้าของร้าน)",
+      "phone": "0800000002",
+      "role": "owner",
+      "line_user_id": null,
+      "avatar": null,
+      "created_at": "2026-01-01 09:00:00",
+      "updated_at": "2026-01-01 09:00:00"
+    },
+    {
+      "id": 3,
+      "uuid": "a1b2c3d4-0001-4e5f-8a9b-000000000003",
+      "username": "staff01",
+      "email": "staff01@wikanda.local",
+      "password_hash": "$2y$10$0Hfy76xeClHgFjJfDeHbp.npAAIRYoz3GWRGQRryiRowCJZIfzPja",
+      "full_name": "ช่างแนน",
+      "phone": "0800000003",
+      "role": "staff",
+      "line_user_id": null,
+      "avatar": null,
+      "created_at": "2026-01-01 09:00:00",
+      "updated_at": "2026-01-01 09:00:00"
+    },
+    {
+      "id": 4,
+      "uuid": "a1b2c3d4-0001-4e5f-8a9b-000000000004",
+      "username": "staff02",
+      "email": "staff02@wikanda.local",
+      "password_hash": "$2y$10$0Hfy76xeClHgFjJfDeHbp.npAAIRYoz3GWRGQRryiRowCJZIfzPja",
+      "full_name": "ช่างโบว์",
+      "phone": "0800000004",
+      "role": "staff",
+      "line_user_id": null,
+      "avatar": null,
+      "created_at": "2026-01-01 09:00:00",
+      "updated_at": "2026-01-01 09:00:00"
+    },
+    {
+      "id": 5,
+      "uuid": "a1b2c3d4-0001-4e5f-8a9b-000000000005",
+      "username": "member01",
+      "email": "member01@example.com",
+      "password_hash": "$2y$10$0Hfy76xeClHgFjJfDeHbp.npAAIRYoz3GWRGQRryiRowCJZIfzPja",
+      "full_name": "สมหญิง รักผม",
+      "phone": "0810000001",
+      "role": "member",
+      "line_user_id": null,
+      "avatar": null,
+      "created_at": "2026-02-15 10:30:00",
+      "updated_at": "2026-02-15 10:30:00"
+    },
+    {
+      "id": 6,
+      "uuid": "a1b2c3d4-0001-4e5f-8a9b-000000000006",
+      "username": "member02",
+      "email": "member02@example.com",
+      "password_hash": "$2y$10$0Hfy76xeClHgFjJfDeHbp.npAAIRYoz3GWRGQRryiRowCJZIfzPja",
+      "full_name": "อรพิน สวยงาม",
+      "phone": "0810000002",
+      "role": "member",
+      "line_user_id": null,
+      "avatar": null,
+      "created_at": "2026-03-01 14:00:00",
+      "updated_at": "2026-03-01 14:00:00"
+    }
+  ]
+}

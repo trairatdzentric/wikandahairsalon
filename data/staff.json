@@ -1,0 +1,34 @@
+{
+  "_meta": {
+    "description": "ข้อมูลช่าง/พนักงาน อ้างอิงไปยัง user.role='staff' / Staff details (extends users with role=staff)",
+    "next_id": 3
+  },
+  "data": [
+    {
+      "id": 1,
+      "uuid": "c3d4e5f6-0003-4a7b-8c9d-000000000001",
+      "user_id": 3,
+      "display_name": "ช่างแนน",
+      "specialty": "ตัดผม, ทำสี / Haircut, Color",
+      "experience_years": 8,
+      "bio": "ประสบการณ์ 8 ปี เชี่ยวชาญตัดผมสไตล์เกาหลี",
+      "avatar": "staff-nan.jpg",
+      "working_days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+      "working_hours": {"start": "10:00", "end": "20:00"},
+      "is_active": true
+    },
+    {
+      "id": 2,
+      "uuid": "c3d4e5f6-0003-4a7b-8c9d-000000000002",
+      "user_id": 4,
+      "display_name": "ช่างโบว์",
+      "specialty": "ดัด, ยืด, ทรีตเมนต์ / Perm, Straighten, Treatment",
+      "experience_years": 5,
+      "bio": "ประสบการณ์ 5 ปี เชี่ยวชาญงานเคมีและทรีตเมนต์",
+      "avatar": "staff-bow.jpg",
+      "working_days": ["tue", "wed", "thu", "fri", "sat", "sun"],
+      "working_hours": {"start": "10:00", "end": "20:00"},
+      "is_active": true
+    }
+  ]
+}

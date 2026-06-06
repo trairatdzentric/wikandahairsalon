@@ -1,0 +1,89 @@
+{
+  "_meta": {
+    "description": "ตารางการจองคิว / Bookings table",
+    "status_values": ["pending", "confirmed", "in_service", "completed", "cancelled"],
+    "next_id": 6
+  },
+  "data": [
+    {
+      "id": 1,
+      "uuid": "d4e5f6a7-0004-4b8c-8d9e-000000000001",
+      "booking_code": "WK20260501-001",
+      "member_id": 5,
+      "service_id": 2,
+      "staff_id": 1,
+      "booking_date": "2026-05-20",
+      "start_time": "10:00",
+      "end_time": "10:45",
+      "total_price": 350,
+      "status": "confirmed",
+      "note": "ลูกค้าต้องการตัดสั้น / Customer wants short cut",
+      "created_at": "2026-05-15 14:23:11",
+      "updated_at": "2026-05-15 14:25:00"
+    },
+    {
+      "id": 2,
+      "uuid": "d4e5f6a7-0004-4b8c-8d9e-000000000002",
+      "booking_code": "WK20260518-002",
+      "member_id": 6,
+      "service_id": 4,
+      "staff_id": 1,
+      "booking_date": "2026-05-22",
+      "start_time": "13:00",
+      "end_time": "15:00",
+      "total_price": 1500,
+      "status": "pending",
+      "note": "อยากทำสีน้ำตาลคาราเมล",
+      "created_at": "2026-05-17 19:10:22",
+      "updated_at": "2026-05-17 19:10:22"
+    },
+    {
+      "id": 3,
+      "uuid": "d4e5f6a7-0004-4b8c-8d9e-000000000003",
+      "booking_code": "WK20260510-003",
+      "member_id": 5,
+      "service_id": 7,
+      "staff_id": 2,
+      "booking_date": "2026-05-10",
+      "start_time": "11:00",
+      "end_time": "11:45",
+      "total_price": 600,
+      "status": "completed",
+      "note": "",
+      "created_at": "2026-05-08 09:30:00",
+      "updated_at": "2026-05-10 11:50:00"
+    },
+    {
+      "id": 4,
+      "uuid": "d4e5f6a7-0004-4b8c-8d9e-000000000004",
+      "booking_code": "WK20260512-004",
+      "member_id": 6,
+      "service_id": 5,
+      "staff_id": 2,
+      "booking_date": "2026-05-12",
+      "start_time": "14:00",
+      "end_time": "16:30",
+      "total_price": 1800,
+      "status": "completed",
+      "note": "ดัดลอนใหญ่",
+      "created_at": "2026-05-09 16:00:00",
+      "updated_at": "2026-05-12 16:35:00"
+    },
+    {
+      "id": 5,
+      "uuid": "d4e5f6a7-0004-4b8c-8d9e-000000000005",
+      "booking_code": "WK20260519-005",
+      "member_id": 5,
+      "service_id": 3,
+      "staff_id": 1,
+      "booking_date": "2026-05-19",
+      "start_time": "16:00",
+      "end_time": "16:30",
+      "total_price": 150,
+      "status": "cancelled",
+      "note": "ลูกค้าติดธุระ",
+      "created_at": "2026-05-16 08:00:00",
+      "updated_at": "2026-05-18 09:15:00"
+    }
+  ]
+}

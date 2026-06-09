@@ -1,5 +1,14 @@
 <?php
 
+$requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+$legacyBasePath = '/Wikanda_Hair_Salon/public';
+if (str_starts_with($requestPath, $legacyBasePath)) {
+    $target = substr($requestPath, strlen($legacyBasePath)) ?: '/';
+    $query = $_SERVER['QUERY_STRING'] ?? '';
+    header('Location: ' . $target . ($query !== '' ? '?' . $query : ''), true, 302);
+    exit;
+}
+
 /**
  * Wikanda Hair Salon - Public Entry Point (InfinityFree)
  * ไฟล์นี้วางใน /htdocs/index.php

@@ -1,5 +1,9 @@
 RewriteEngine On
 
+# Backward compatibility for old local-style URLs deployed on the domain root.
+RewriteRule ^Wikanda_Hair_Salon/public/?$ / [R=302,L]
+RewriteRule ^Wikanda_Hair_Salon/public/(.*)$ /$1 [R=302,L]
+
 # Protect system folders
 RewriteRule ^(app|config|data|database|storage)/ - [F,L]
 

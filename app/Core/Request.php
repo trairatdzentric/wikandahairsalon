@@ -77,6 +77,12 @@ class Request
             $uri = substr($uri, strlen($basePath));
         }
 
+        // Hosting may still receive old local-style links after deployment.
+        $legacyBasePath = '/Wikanda_Hair_Salon/public';
+        if (str_starts_with($uri, $legacyBasePath)) {
+            $uri = substr($uri, strlen($legacyBasePath)) ?: '/';
+        }
+
         return '/' . ltrim($uri, '/');
     }
 
